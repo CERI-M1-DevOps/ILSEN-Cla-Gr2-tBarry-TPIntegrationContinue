@@ -18,6 +18,7 @@ jobs:
         - name: Build with Maven to check quality 
           run: >-
             mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-            -Dsonar.projectKey=$(echo ${{ secrets.SONAR_TOKEN }} | sed 's-/-_-')
-
+            -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-')
+          env:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
  
