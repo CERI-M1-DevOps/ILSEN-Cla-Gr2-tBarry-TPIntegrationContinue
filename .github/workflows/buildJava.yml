@@ -15,6 +15,23 @@ jobs:
           with:
             java-version: '21'
             distribution: 'corretto'
+
+        - name: Cache Maven packages
+          uses: actions/cache@v4
+          with:
+            path: ~/.m2/repository
+            key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+            restore-keys: |
+              ${{ runner.os }}-m2
+
+        - name: Cache SonarQube packages
+          uses: actions/cache@v4
+          with:
+            path: ~/.sonar/cache
+            key: ${{ runner.os }}-sonar
+            restore-keys: |
+              ${{ runner.os }}-sonar
+              
         - name: Build with Maven to check quality 
           run: >-
             mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
