@@ -113,6 +113,18 @@ public class ListeSimpleTest {
     }
 
     @Test
+    public void supprimePremierValeurAbsente() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+
+        listeATester.supprimePremier(4);
+
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(3, listeATester.getSize());
+    }
+
+    @Test
     public void supprimeTousListeVide() {
         listeATester.supprimePremier(1);
         assertNull(listeATester.tete);
