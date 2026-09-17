@@ -1,6 +1,6 @@
 name: Java CI with Maven - Test and package
 
-on: [pull_request]
+on: [workflow_dispatch]
 
 jobs:
   Exercice_2_3:
