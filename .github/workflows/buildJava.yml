@@ -38,4 +38,5 @@ jobs:
             -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-')
           env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            
  
