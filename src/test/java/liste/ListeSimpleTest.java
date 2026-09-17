@@ -125,13 +125,14 @@ public class ListeSimpleTest {
     }
 
     @Test
-    public void supprimePremierValeurAbsenteApresParcoursComplet() {
+    public void supprimePremierCourantNullValeurAbsente() {
         listeATester.ajout(1);
+        listeATester.ajout(2);
 
-        listeATester.supprimePremier(2);
+        listeATester.supprimePremier(3);
 
-        assertEquals("ListeSimple(Noeud(1))", listeATester.toString());
-        assertEquals(1, listeATester.getSize());
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(2, listeATester.getSize());
     }
 
     @Test
