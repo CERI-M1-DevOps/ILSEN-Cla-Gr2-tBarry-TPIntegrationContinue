@@ -3,8 +3,8 @@ name: Java CI with Maven - Test and package
 on: [pull_request]
 
 jobs:
-  Exercice_2: # Nom du job : Salutations
-    name: Salutations
+  Exercice_2_3:
+    name: Java CI with Maven - Test and package
     runs-on: ubuntu-latest
     steps:
         - name: Checkout repository
@@ -16,6 +16,9 @@ jobs:
             java-version: '21'
             distribution: 'corretto'
         - name: Build with Maven to check quality 
-          run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar-Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-')
+          run: >-
+            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+            -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-')
           env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+ 
