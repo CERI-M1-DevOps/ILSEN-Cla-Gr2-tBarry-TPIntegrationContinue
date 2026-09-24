@@ -23,13 +23,13 @@ jobs:
             cache: maven
 
       - name: Generate Java Documentation with Maven
-        run: mvn -B clean javadoc:javadoc
+        run: mvn -B clean javadoc::javadoc
 
       - name: Publish Java Documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./main
+          
 
 
 
